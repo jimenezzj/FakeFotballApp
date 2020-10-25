@@ -1,0 +1,36 @@
+.ScoreBorad {
+  display: flex;
+  align-items: center;
+  padding-top: 1.25rem;
+  justify-content: center;
+  .ScoreBoard__left,
+  .ScoreBoard__right {
+    width: 40%;
+  }
+  .ScoreBoard__left {
+    padding-right: 4%;
+    text-align: end;
+  }
+  .ScoreBoard__right {
+    padding-left: 4%;
+  }
+  .ScoreBorad__Result {
+    position: relative;
+    text-align: center;
+    .ScoreBorad__Status {
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      font-size: calc(var(--fs-body) * 0.8);
+      &_Progress {
+        @extend .ScoreBorad__Status;
+        color: var(--clr-primary);
+      }
+    }
+    .ScoreBorad__Result {
+      font-size: 1.25rem;
+      font-weight: var(--fw-bold);
+    }
+  }
+}

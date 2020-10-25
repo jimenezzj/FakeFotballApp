@@ -1,0 +1,42 @@
+.btnHamburger {
+  background: transparent;
+  padding: 0.75rem 0.25rem;
+  cursor: pointer;
+  border: 5px solid transparent;
+  margin-right: 0.75rem;
+}
+.btnHamburger:hover {
+  background-color: #d4e8f9;
+}
+.Hamburger {
+  position: relative;
+  display: block;
+}
+.btnHamburger > .Hamburger--open,
+.btnHamburger > .Hamburger--open::before,
+.btnHamburger > .Hamburger--open::after {
+  background-color: #05345e;
+}
+
+.Hamburger,
+.Hamburger::before,
+.Hamburger::after {
+  width: 1.8rem;
+  height: 3px;
+  vertical-align: middle;
+  background-color: #242424;
+  border: none;
+  border-radius: 10px;
+}
+.Hamburger::before,
+.Hamburger::after {
+  position: absolute;
+  content: "";
+  left: 0;
+}
+.Hamburger::before {
+  top: 8px;
+}
+.Hamburger::after {
+  bottom: 8px;
+}

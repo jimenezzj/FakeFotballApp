@@ -1,0 +1,27 @@
+.CardMatch {
+  background-color: var(--clr-dark-acent);
+  margin-bottom: 2rem;
+  .CardMatch__Header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: var(--clr-dark-strong);
+    .CardMatch__Compt {
+      padding: 1rem;
+      background-color: red;
+      margin: auto 0;
+    }
+  }
+
+  .CardMatch__Body {
+    padding: 1rem 0;
+  }
+}
+.CardMatch__Info {
+  padding-left: 2rem;
+  .CardMatch__Name {
+  }
+
+  .CalendarMatches__Phase {
+  }
+}

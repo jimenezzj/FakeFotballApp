@@ -1,0 +1,35 @@
+.Competition {
+  flex-grow: 1;
+  & > * {
+    // border: 2px solid red;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+.Table {
+  padding: 2.5rem 0;
+  width: 60%;
+  margin: 0 auto;
+  .Table__Title {
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h1);
+    padding-bottom: 1.5rem;
+  }
+}
+
+.Table__Logo {
+  display: flex;
+  align-items: center;
+  height: 9vh;
+  padding: 0.5rem;
+  & > img {
+    margin: 0 auto;
+    height: 95%;
+  }
+  & > span {
+    padding-left: 5%;
+    width: 80%;
+    text-align: start;
+  }
+}

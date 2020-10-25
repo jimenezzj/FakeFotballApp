@@ -1,0 +1,20 @@
+.Results {
+  display: flex;
+  flex-grow: 1;
+}
+
+.ResultsArea {
+  flex-grow: 3;
+}
+
+.ResultsArea__list {
+  padding: 2rem 0;
+}
+// Filters
+.Filters {
+  height: 2px;
+  border: 3px solid red;
+  /* height: 2px; */
+  flex-grow: 1;
+}
+

@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import Layout from "./containers/Layout/Layout";
+import classes from './App.module.scss';
+import Results from './containers/Results/Results';
+import Competition from './containers/Competition/Competition';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Redirect exact from="/" to="/results" />
+          <Route path="/results" component={Results} />
+          <Route path="/competition/:idCompt" component={Competition} />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

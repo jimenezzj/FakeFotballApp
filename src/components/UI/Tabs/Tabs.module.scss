@@ -1,0 +1,20 @@
+.Tabs {
+  display: flex;
+  background-color: var(--clr-dark-acent);
+  padding: 0.5rem 1.5rem;
+  .Tabs__Link {
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
+    font-size: calc(var(--fs-h3) * 0.8);
+    &_active {
+      @extend .Tabs__Link;
+      border-bottom: 4px solid var(--clr-primary);
+      color: var(--clr-primary);
+    }
+    &:not(:last-of-type) {
+      margin-right: 1.5rem;
+    }
+  }
+}

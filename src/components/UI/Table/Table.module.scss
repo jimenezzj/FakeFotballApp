@@ -1,0 +1,28 @@
+/* Table */
+
+.TableWrapp {
+  background-color: var(--clr-dark-acent);
+  &__Mess {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+table {
+  text-align: center;
+  width: 100%;
+  thead {
+    font-weight: var(--fw-bold);
+    font-size: 1.25rem;
+    td {
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--clr-light-strong);
+    }
+  }
+  tbody {
+    font-size: 1.125rem;
+    td {
+      padding: 0.5rem 1rem;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.CompetitionHeader {
+  background-color: var(--clr-dark-acent);
+  // width: 60%;
+  // margin: 0 auto;
+  padding: 1.25rem 1rem 0 1rem;
+  &__Top {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--clr-light);
+    figure {
+      padding: 1rem;
+      background-color: #4545d4;
+      margin: auto 0;
+    }
+  }
+  &__Info {
+    flex-grow: 1;
+    &_country {
+      text-transform: uppercase;
+    }
+  }
+  .CompetitionHeader__Bottom {
+    padding-top: 0.75rem;
+  }
+}

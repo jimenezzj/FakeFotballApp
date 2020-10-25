@@ -1,0 +1,53 @@
+//  CompetitionsList
+.CompetitionsList {
+  // border: 3px solid red;
+  flex-grow: 1;
+  background-color: var(--clr-dark-acent);
+  margin-left: 5%;
+  .CompetitionsList__Actions {
+    display: flex;
+    padding: 0.5rem 5%;
+    align-items: center;
+    .CompetitionsList__Opt {
+      font-size: var(--fs-h3);
+      flex-grow: 1;
+    }
+  }
+}
+
+.TypeComptns {
+  position: relative;
+  .TypeComptns__btnDropDown {
+  }
+  .TypeComptnst__List {
+    display: none;
+    position: absolute;
+    background-color: var(--clr-dark-strong);
+    width: 12vw;
+    top: 100%;
+    left: -7vw;
+    padding: 1rem;
+    .TypeComptns__Item {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+.CompetitionsList__List {
+  .CompetitionsList__Item {
+    margin-bottom: 0.5rem;
+  }
+  .CompetitionsList__Link {
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    figure {
+      padding: 1rem;
+      background-color: red;
+      margin: auto 0;
+    }
+    span {
+      margin-left: 4%;
+    }
+  }
+}

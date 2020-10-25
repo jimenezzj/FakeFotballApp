@@ -1,0 +1,31 @@
+.CalendarMatches {
+  display: flex;
+  justify-content: center;
+  background-color: var(--clr-dark-acent);
+  align-items: center;
+  .CalendarMatches__Item {
+    padding: 0.5rem 0.75rem;
+  }
+  .CalendarMatches__Btn {
+    background-color: transparent;
+    color: var(--clr-light);
+    font-size: 1.25rem;
+    border: 2px solid transparent;
+    border-radius: 3rem;
+    padding: 0.25rem 1rem;
+    &_active {
+      @extend .CalendarMatches__Btn;
+      background-color: var(--clr-dark-strong);
+      font-weight: var(--fw-bold);
+    }
+    &_today {
+      @extend .CalendarMatches__Btn;
+      color: var(--clr-primary);
+    }
+    &_ta {
+      @extend .CalendarMatches__Btn;
+      @extend .CalendarMatches__Btn_today;
+      border: 2px solid var(--clr-primary);
+    }
+  }
+}

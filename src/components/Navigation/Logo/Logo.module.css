@@ -1,0 +1,9 @@
+.Logo__link {
+  display: block;
+  height: inherit;
+  /* max-width: 30%; */
+}
+.Logo__img {
+  height: 100%;
+  width: auto;
+}
