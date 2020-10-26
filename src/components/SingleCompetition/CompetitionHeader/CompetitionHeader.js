@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
+import Card from '../../UI/Card/Card';
 import Tabs from '../../UI/Tabs/Tabs';
 import classes from './CompetitionHeader.module.scss';
 
@@ -10,7 +11,8 @@ const CompetitionHeader = ({ competition, ...props }) => {
 
 
     return (
-        <div className={classes.CompetitionHeader}>
+        <Card customStyles={[classes.CompetitionHeader]}
+            roundedBorders={[true, true, false, false]}>
             <div className={classes.CompetitionHeader__Top}>
                 <figure className={classes.CompetitionHeader__Logo}>
                 </figure>
@@ -26,7 +28,7 @@ const CompetitionHeader = ({ competition, ...props }) => {
                     {/* <DropDown /> */}
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 

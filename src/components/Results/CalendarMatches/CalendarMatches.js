@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './CalendarMatches.module.scss';
 import { addDays, isSameDay, months, substractDays } from '../../../util/DateHelper';
+import Card from '../../UI/Card/Card';
 
 const CalendarMatches = ({ selectedDate, ...props }) => {
     const getShortDateMonth = (date) => `${date.getDate()} ${months[date.getMonth()].slice(0, 3)}`;
@@ -68,9 +69,11 @@ const CalendarMatches = ({ selectedDate, ...props }) => {
     );
 
     return (
-        <ul className={classes.CalendarMatches}>
-            {generateBtnsList(createArrDates(selectedDate))}
-        </ul>
+        <Card roundedBorders={true}>
+            <ul className={classes.CalendarMatches}>
+                {generateBtnsList(createArrDates(selectedDate))}
+            </ul>
+        </Card>
     )
 }
 

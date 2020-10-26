@@ -2,9 +2,10 @@ import { faSearch, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Card from '../../components/UI/Card/Card';
+import DropDown from '../../components/UI/DropDown/DropDown';
 import UrlHandler from '../../util/UrlHandler';
 import classes from './CompetitionsArea.module.scss';
-
 
 // const competitionsList = {
 //     clubs: [2021, 2019, 2014, 2002, 2015],
@@ -12,19 +13,23 @@ import classes from './CompetitionsArea.module.scss';
 //     myTeams: []
 // }
 
-const CompetitionsArea = ({ competitionsList, ...props }) => {
+const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList }) => {
 
-    const [stateCrrntCompetitions, setstateCrrntCompetitions] =
-        useState(competitionsList.clubs);
-    const [stateComptnsList, setStateComptnsList] = useState([]);
+    // const [stateCrrntCompetitions, setstateCrrntCompetitions] =
+    //     useState(currentComptList);
+    const [stateComptns, setStateComptns] = useState({
+        list: [],
+        name: "Clubs"
+    });
 
     useEffect(() => {
-        loadCompetitions(stateCrrntCompetitions);
-    }, []);
+        console.log(currentComptList)
+        loadCompetitions(currentComptList);
+    }, [currentComptList]);
 
-    useEffect(() => {
-        console.log(stateComptnsList);
-    }, [stateComptnsList]);
+    // useEffect(() => {
+    //     console.log(stateComptnsList);
+    // }, [stateComptnsList]);
 
     const loadCompetitions = (arrComptns) => {
         const urlHandlr = UrlHandler();
@@ -37,36 +42,47 @@ const CompetitionsArea = ({ competitionsList, ...props }) => {
             .then(res => res.json())
             .then(({ competitions, ...res }) => {
                 const crrntComptns = competitions.filter(cp => arrComptns.find(id => id === cp.id));
-                setStateComptnsList(crrntComptns);
+                setStateComptns({ ...stateComptns, list: crrntComptns });
                 // console.log(crrntComptns);
             });
     }
 
+    // should be ina util file
+    const capitalizeCamelVars = (word) => {
+        let newTmpW = word.replaceAll(/\B[A-Z]\B/g, ' ');
+        return newTmpW.split('').map((l, i) => {
+            if (i === 0) return l.toUpperCase();
+            if (l === ' ') return ` ${word[i]}`;
+            return l;
+        }).join('');
+    }
+
+    const changeList = (listName) => {
+        // console.log(comptsOpts[listName]);
+        changeComptList(comptsOpts[listName]);
+        setStateComptns({ ...stateComptns, name: capitalizeCamelVars(listName) })
+    }
+
+    const dropDownList = [
+        { label: "Clubs", action: changeList.bind(this, 'clubs') },
+        { label: "National Tems", action: changeList.bind(this, 'nationalTeams') },
+        { label: "My Teams", action: changeList.bind(this, 'myTeams') }
+    ];
     return (
-        <div className={classes.CompetitionsList}>
+        <Card customStyles={[classes.CompetitionsList]} roundedBorders={true}>
             <div className={classes.CompetitionsList__Actions}>
-                <span className={classes.CompetitionsList__Opt}>Clubs</span>
-                {/* DropDOwn */}
-                <div className={classes.TypeComptns}>
-                    <button className={classes.TypeComptns__btnDropDown}>
-                        <FontAwesomeIcon icon={faSortDown} />
-                    </button>
-                    <ul className={classes.TypeComptnst__List}>
-                        <li className={classes.TypeComptns__Item}>National Teams</li>
-                        <li className={classes.TypeComptns__Item}>Clubs</li>
-                        <li className={classes.TypeComptns__Item}>My List</li>
-                    </ul>
-                </div>
-                <button>
+                <span className={classes.CompetitionsList__Opt}>{stateComptns.name}</span>
+                <DropDown icon={faSortDown} optsList={dropDownList} />
+                <button className={`${classes.CompetitionsList__BtnSearch} btnIcon`}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </div>
             <ul className={classes.CompetitionsList__List}>
                 {/* SOMELIST */}
                 {
-                    stateComptnsList.length < 1
-                        ? <p>List its empty</p>
-                        : stateComptnsList.map(({ id, name, ...comp }) => (
+                    stateComptns.list.length < 1
+                        ? <p className={classes.CompetitionsList__List_Empty}>List its empty</p>
+                        : stateComptns.list.map(({ id, name, ...comp }) => (
                             <li className={classes.CompetitionsList__Item} key={id}>
                                 <NavLink to={`/competition/${id}`} className={classes.CompetitionsList__Link}>
                                     <figure ></figure>
@@ -76,7 +92,7 @@ const CompetitionsArea = ({ competitionsList, ...props }) => {
                         ))
                 }
             </ul>
-        </div>
+        </Card>
     )
 }
 

@@ -1,11 +1,12 @@
 .CardMatch {
   background-color: var(--clr-dark-acent);
   margin-bottom: 2rem;
-  .CardMatch__Header {
+  &__Header {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
     background-color: var(--clr-dark-strong);
+    border-radius: 1rem 1rem 0 0;
     .CardMatch__Compt {
       padding: 1rem;
       background-color: red;
@@ -13,7 +14,7 @@
     }
   }
 
-  .CardMatch__Body {
+  &__Body {
     padding: 1rem 0;
   }
 }

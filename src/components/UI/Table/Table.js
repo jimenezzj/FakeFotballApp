@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Card from '../Card/Card';
 import classes from './Table.module.scss';
 
 const Table = ({ cols, data, ...props }) => {
@@ -27,7 +28,7 @@ const Table = ({ cols, data, ...props }) => {
     }
 
     return (
-        <div className={classes.TableWrapp}>
+        <Card roundedBorders={true} customStyles={[classes.TableWrapp]}>
             <table cellSpacing={0}>
                 <thead>
                     <tr>
@@ -45,7 +46,7 @@ const Table = ({ cols, data, ...props }) => {
             </table>
             {data.length === 0
                 && <p className={classes.TableWrapp__Mess}>The list its empty</p>}
-        </div>
+        </Card>
     )
 }
 

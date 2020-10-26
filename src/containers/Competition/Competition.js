@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CompetitionHeader from '../../components/SingleCompetition/CompetitionHeader/CompetitionHeader';
+import Card from '../../components/UI/Card/Card';
 import Table from '../../components/UI/Table/Table';
 import Tabs from '../../components/UI/Tabs/Tabs';
 import UrlHandler from '../../util/UrlHandler';
@@ -19,7 +20,7 @@ const Competition = () => {
     useEffect(() => {
         fetchCompetitionInfo();
         // console.log(param);
-    }, [sttCompt]);
+    }, []);
 
     const createURLFetchStandings = () => {
         const urlHandler = UrlHandler();

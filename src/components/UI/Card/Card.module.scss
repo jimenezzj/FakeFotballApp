@@ -1,0 +1,21 @@
+.Card {
+  box-shadow: 0px 5px 2px 0px #222222;
+  &_br1 {
+    border-top-left-radius: 1rem;
+  }
+  &_br2 {
+    border-top-right-radius: 1rem;
+  }
+  &_br3 {
+    border-bottom-right-radius: 1rem;
+  }
+  &_br4 {
+    border-bottom-left-radius: 1rem;
+  }
+  &_BorNone {
+    border-radius: 0;
+  }
+  &_BorRounded {
+    border-radius: 1rem;
+  }
+}

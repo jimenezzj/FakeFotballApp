@@ -6,7 +6,8 @@ import Logo from '../Logo/Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 
-import clasess from './TopNav.module.css';
+import clasess from './TopNav.module.scss';
+import DropDown from '../../UI/DropDown/DropDown';
 // import SearchBar from '../../UI/SearchBar/SearchBar';
 
 const TopNav = (props) => {
@@ -16,21 +17,20 @@ const TopNav = (props) => {
         <div className={clasess.topNav}>
             <div className={clasess.topNav__left}>
                 <DrawerToggle />
-                <Logo />
+                <Logo label={"FakeFootball"} />
             </div>
             {/* <div className={clasess.searchBar}>
                 <SearchBar searchItem={props.searchItem} />
             </div> */}
             <div className={clasess.UsrMenuOpts}>
-                <NavLink className={clasess.UsrMenuOpts__link} to="/">
+                <NavLink className={clasess.UsrMenuOpts__Link} to="/">
                     <figure className={clasess.UsrMenuOpts__WrapImg}  >
                         {/* <img className={clasess.UsrMenuOpts__img} /> */}
                     </figure>
                     <span className={clasess.UsrMenuOpts__name}>Usuario</span>
                 </NavLink>
-                <button>
-                    <FontAwesomeIcon icon={faSortDown} />
-                </button>
+                <DropDown icon={faSortDown} optsList={[]}
+                    customStyles={[clasess.UsrMenuOpts__BtnUsrOpts]} />
             </div>
         </div>
     );

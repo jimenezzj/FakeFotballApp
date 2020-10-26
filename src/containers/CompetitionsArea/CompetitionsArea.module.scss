@@ -1,6 +1,7 @@
 //  CompetitionsList
 .CompetitionsList {
   // border: 3px solid red;
+  max-width: 20%;
   flex-grow: 1;
   background-color: var(--clr-dark-acent);
   margin-left: 5%;
@@ -13,27 +14,18 @@
       flex-grow: 1;
     }
   }
-}
-
-.TypeComptns {
-  position: relative;
-  .TypeComptns__btnDropDown {
-  }
-  .TypeComptnst__List {
-    display: none;
-    position: absolute;
-    background-color: var(--clr-dark-strong);
-    width: 12vw;
-    top: 100%;
-    left: -7vw;
-    padding: 1rem;
-    .TypeComptns__Item {
-      padding: 0.5rem 0;
+  &__BtnSearch {
+    background-color: transparent;
+    &:hover {
+      background-color: var(--clr-dark-strong);
     }
   }
 }
 
 .CompetitionsList__List {
+  &_Empty {
+    padding: 1rem;
+  }
   .CompetitionsList__Item {
     margin-bottom: 0.5rem;
   }

@@ -1,0 +1,37 @@
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--clr-primary);
+  height: 9vh;
+}
+.topNav__left {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+.UsrMenuOpts {
+  display: flex;
+  align-items: center;
+  &__Link {
+    // border: 1px solid red;
+    color: var(--clr-dark-acent);
+    display: flex;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    margin-right: 0.75rem;
+    &:hover {
+      background-color: #00000021;
+    }
+  }
+  &__BtnUsrOpts {
+    color: var(--clr-dark-acent) !important;
+    align-items: flex-start !important;
+    &:hover {
+      background-color: #00000021 !important;
+    }
+  }
+}

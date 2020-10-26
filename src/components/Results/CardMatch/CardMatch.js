@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Card from '../../UI/Card/Card';
 import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import classes from './CardMatch.module.scss';
 
@@ -7,7 +8,7 @@ const CardMatch = ({ matches, ...props }) => {
     //     console.log(props.matches);
     // })
     return (
-        <div className={classes.CardMatch}>
+        <Card roundedBorders={true} customStyles={[classes.CardMatch]}>
             <div className={classes.CardMatch__Header}>
                 <figure className={classes.CardMatch__Compt} style={{ padding: "1rem", backgroundColor: "red" }}>
                 </figure>
@@ -28,7 +29,7 @@ const CardMatch = ({ matches, ...props }) => {
                 {/* <ScoreBoard teamHome={props.teamHome} teamAway={props.teamAway} result={props.result} />
                 <ScoreBoard teamHome={props.teamHome} teamAway={props.teamAway} result={props.result} /> */}
             </div>
-        </div>
+        </Card>
     )
 }
 

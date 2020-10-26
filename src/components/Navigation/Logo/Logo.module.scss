@@ -1,0 +1,11 @@
+.Logo__link {
+  display: flex;
+  height: inherit;
+  align-items: center;
+  color: var(--clr-light);
+  font-size: var(--fs-h3);
+}
+.Logo__img {
+  height: 100%;
+  width: auto;
+}

@@ -7,8 +7,8 @@ import CompetitionsArea from '../CompetitionsArea/CompetitionsArea';
 import classes from './Results.module.scss';
 
 const competitionsList = {
-    clubs: [2021, 2019], // ,2014, 2002, 2015
-    nationalTeams: [],
+    clubs: [2021, 2015], // 2021, 2019, 2014, 2002, 2015
+    nationalTeams: [2003],
     myTeams: []
 }
 
@@ -25,8 +25,8 @@ const Results = () => {
 
     useEffect(() => {
         console.log("- - - RESULT DATE STATE - - -");
-        // loadMatchesOfDay();
-    }, [stateCrrntDate]);
+        loadMatchesOfDay(); // fetchMatches form the day choosen
+    }, [stateCrrntDate, stateComptnsList]);
 
 
     const createApiCallsMatches = (arrIdComptns) => {
@@ -73,7 +73,7 @@ const Results = () => {
                 <CalendarMatches selectedDate={stateCrrntDate} changeDate={setStateCrrntDate} />
                 <div className={classes.ResultsArea__list}>
                     {
-                        !stateComptMatches
+                        !stateComptMatches.length > 0
                             ? <p>Cargando..</p>
                             : stateComptMatches.map(({ competition, matches, ...comp }) => (
                                 <CardMatch key={competition.id} competition={competition.name}
@@ -82,7 +82,9 @@ const Results = () => {
                     }
                 </div>
             </div>
-            <CompetitionsArea competitionsList={competitionsList} />
+            <CompetitionsArea currentComptList={stateComptnsList}
+                changeComptList={setStateComptnsList}
+                comptsOpts={competitionsList} />
         </div>
     )
 }

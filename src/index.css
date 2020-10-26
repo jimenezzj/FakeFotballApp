@@ -11,8 +11,8 @@
   --clr-light: #e6e6e6;
   --clr-light-strong: #c4c4c4;
   --clr-dark-acent: #434343;
-  --clr-dark-strong: #2e2e2e;
   --clr-dark-back: #343434;
+  --clr-dark-strong: #2e2e2e;
 
   --ff-primary: "Poppins", sans-serif;
   --ff-secondary: "Teko", monospace;
@@ -116,6 +116,18 @@ button {
   display: inline-block;
   font-size: 1.12rem;
   border: 2px solid transparent;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-dark-back);
   font-family: var(--ff-primary);
+  color: var(--clr-light);
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.btnIcon {
+  border-radius: 2rem;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

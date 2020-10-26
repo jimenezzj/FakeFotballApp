@@ -1,0 +1,43 @@
+.DropDown {
+  position: relative;
+  .TypeComptns__btnDropDown {
+  }
+  &__List {
+    display: none;
+    position: absolute;
+    background-color: var(--clr-dark-strong);
+    // width: 12vw;
+    top: 100%;
+    left: -7vw;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #6d6d6d;
+    box-shadow: 0px 2px 6px 3px #0000006b;
+    &_Open {
+      display: block;
+    }
+  }
+  &__Item {
+    padding: 0.5rem 0;
+    white-space: nowrap;
+    color: var(--clr-light);
+    &:hover {
+      background-color: var(--clr-dark-acent);
+      border-radius: 0.5rem;
+    }
+  }
+  &__Btn {
+    background-color: transparent;
+    border-radius: 2rem;
+    &:hover {
+      background-color: var(--clr-dark-strong);
+    }
+  }
+  &__BtnOpt {
+    background-color: transparent;
+    color: inherit;
+    width: 100%;
+    padding: 0 0.75rem;
+    text-align: start;
+  }
+}
