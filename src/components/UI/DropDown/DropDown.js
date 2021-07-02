@@ -1,11 +1,19 @@
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import classes from './DropDown.module.scss';
 
-const DropDown = ({ label, optsList, icon, customStyles }) => {
+const DropDownEle = ({ label, optsList, icon, customStyles, btnDropDownRef }) => {
 
+    // const dropDown = useRef(null);
     const dropDownList = useRef(null);
+
+    // useImperativeHandle(dropDownRef, () => ({
+    //     focus: () => {
+    // dropDownRef.current.focus()
+    //         console.log(dropDownRef)
+    //     }
+    // }))
 
     const openList = () => {
         const { classList } = dropDownList.current;
@@ -22,13 +30,21 @@ const DropDown = ({ label, optsList, icon, customStyles }) => {
     }
     const flatClassModdArr = (arr) => arr && arr.reduce((prev, curr) => `${prev} ${curr}`);
 
+    // useEffect(() => {
+    //     console.log(optsList);
+    // });
+
     return (
-        <div className={classes.DropDown}>
-            <button className={`${classes.DropDown__Btn} ${flatClassModdArr(customStyles)} btnIcon`} onClick={openList}>
-                <FontAwesomeIcon icon={icon} />
+        <div className={classes.DropDown} >
+            <button className={`${classes.DropDown__Btn} ${flatClassModdArr(customStyles)} 
+            ${!label ? 'btnIcon' : classes.DropDown__BtnLabeled}`}
+                onClick={openList}
+                ref={btnDropDownRef} aria-haspopup="listbox"
+                value={!!openList.length ? openList[0].label : ""}>
                 {label && <span>{label}</span>}
+                <FontAwesomeIcon icon={icon} />
             </button>
-            <ul className={classes.DropDown__List} ref={dropDownList}>
+            <ul className={label ? classes.DropDown__List_Labeled : classes.DropDown__List} ref={dropDownList}>
                 {
                     optsList.map((op, i) => (
                         <li className={classes.DropDown__Item} key={op.label + optsList.length}>
@@ -45,5 +61,7 @@ const DropDown = ({ label, optsList, icon, customStyles }) => {
         </div>
     )
 }
+
+const DropDown = forwardRef((props, ref) => <DropDownEle {...props} btnDropDownRef={ref} />);
 
 export default DropDown;

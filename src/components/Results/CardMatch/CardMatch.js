@@ -14,7 +14,7 @@ const CardMatch = ({ matches, ...props }) => {
                 </figure>
                 <div className={classes.CardMatch__Info}>
                     <h1 className={classes.CardMatch__Name}>{props.competition}</h1>
-                    {props.stage && <h2 className={classes.CalendarMatches__Phase}>{props.stage}</h2>}
+                    {props.stage && <h2 className={classes.CardMatch__Phase}>{props.stage}</h2>}
                 </div>
             </div>
             <div className={classes.CardMatch__Body}>
@@ -26,6 +26,7 @@ const CardMatch = ({ matches, ...props }) => {
                                 score={score} status={m.status} utcDate={m.utcDate} />
                         ))
                 }
+                {matches.length === 0 && <p> There's no matches to show</p>}
                 {/* <ScoreBoard teamHome={props.teamHome} teamAway={props.teamAway} result={props.result} />
                 <ScoreBoard teamHome={props.teamHome} teamAway={props.teamAway} result={props.result} /> */}
             </div>

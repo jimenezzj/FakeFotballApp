@@ -6,6 +6,7 @@ import Table from '../../components/UI/Table/Table';
 import Tabs from '../../components/UI/Tabs/Tabs';
 import UrlHandler from '../../util/UrlHandler';
 import classes from './Competition.module.scss';
+import Matches from './Matches/Matches';
 
 const Competition = () => {
 
@@ -91,9 +92,7 @@ const Competition = () => {
     );
 
     const createMatchesComp = () => (
-        <p>
-            This is matches Comp
-        </p>
+        <Matches numTeams={sttCompt.standings.length} compt={sttCompt.info} />
     );
 
     const createStadisticsComp = () => (

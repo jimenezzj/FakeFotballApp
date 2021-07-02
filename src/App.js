@@ -4,6 +4,7 @@ import Layout from "./containers/Layout/Layout";
 import classes from './App.module.scss';
 import Results from './containers/Results/Results';
 import Competition from './containers/Competition/Competition';
+import NoMatch from './components/NoMatch/NoMatch';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Redirect exact from="/" to="/results" />
           <Route path="/results" component={Results} />
           <Route path="/competition/:idCompt" component={Competition} />
+          <Route path="*" component={NoMatch} />
         </Switch>
       </Layout>
     </BrowserRouter>

@@ -27,6 +27,10 @@
         @extend .ScoreBorad__Status;
         color: var(--clr-primary);
       }
+      &_Cancel {
+        @extend .ScoreBorad__Status;
+        color: #f76e6e;
+      }
     }
     .ScoreBorad__Result {
       font-size: 1.25rem;

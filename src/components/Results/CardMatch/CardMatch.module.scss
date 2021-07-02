@@ -17,12 +17,17 @@
   &__Body {
     padding: 1rem 0;
   }
-}
-.CardMatch__Info {
-  padding-left: 2rem;
-  .CardMatch__Name {
+  &__Phase {
+    font-family: var(--ff-primary);
+    font-weight: 400;
+    font-size: var(--fs-h3);
   }
+  &__Info {
+    padding-left: 2rem;
+    .CardMatch__Name {
+    }
 
-  .CalendarMatches__Phase {
+    .CalendarMatches__Phase {
+    }
   }
 }

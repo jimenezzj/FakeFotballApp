@@ -25,6 +25,11 @@ const ScoreBoard = ({ score, status, ...props }) => {
                     <p className={classes.ScoreBorad__Result}>{createScoreStrg(score.fullTime)}</p>
                 </Fragment>
             //  SCHEDULEDF
+            case "POSTPONED":
+                return <Fragment>
+                    <p className={classes.ScoreBorad__Status_Cancel}>{status}</p>
+                    <FontAwesomeIcon icon={faClock} />
+                </Fragment>
             default:
                 return <Fragment>
                     <p className={classes.ScoreBorad__Status}>{toTimeISOFormatt(new Date(props.utcDate))}</p>

@@ -19,6 +19,7 @@ const Card = ({ roundedBorders, customStyles, ...props }) => {
     // should be util
     const flatClassModdArr = (arr) => arr && arr.reduce((prev, curr) => `${prev} ${curr}`);
 
+    console.log(this);
     return (
         <div className={`${classes.Card}  ${flatClassModdArr(customStyles)} ${generateBorderClass(roundedBorders)}`}>
             {props.children}

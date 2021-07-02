@@ -1,0 +1,31 @@
+.Select {
+  display: inline-block;
+  position: relative;
+  &__Label {
+    width: 100%;
+    display: block;
+  }
+  &__BtnDropD {
+    position: absolute;
+    top: 35%;
+    right: 0%;
+  }
+  &__Ele {
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    background-color: var(--clr-dark-acent);
+    border: 1px solid var(--clr-light-strong);
+    border-radius: 0.35rem;
+    box-shadow: 1px 1px 4px 3px #0000007d;
+    font-size: 1.125rem;
+    color: var(--clr-light);
+    font-family: var(--ff-primary);
+    -o-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  option {
+    display: none;
+  }
+}

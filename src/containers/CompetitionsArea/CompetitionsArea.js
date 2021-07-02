@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Card from '../../components/UI/Card/Card';
 import DropDown from '../../components/UI/DropDown/DropDown';
+import withErrorHandling from '../../hoc/withErrorHandling/withErrorHandling';
 import UrlHandler from '../../util/UrlHandler';
 import classes from './CompetitionsArea.module.scss';
 
@@ -13,7 +14,7 @@ import classes from './CompetitionsArea.module.scss';
 //     myTeams: []
 // }
 
-const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList }) => {
+const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList, ...props }) => {
 
     // const [stateCrrntCompetitions, setstateCrrntCompetitions] =
     //     useState(currentComptList);
@@ -23,7 +24,7 @@ const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList }) => 
     });
 
     useEffect(() => {
-        console.log(currentComptList)
+        // console.log(currentComptList);
         loadCompetitions(currentComptList);
     }, [currentComptList]);
 
@@ -39,11 +40,23 @@ const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList }) => 
             headers: urlHandlr.getHeaders()
         };
         fetch(url, opts)
-            .then(res => res.json())
+            .then(res => {
+                const resParsed = res.json();
+                if (res.status !== 200) {
+                    const err = new Error(resParsed.messsage || resParsed.error);
+                    err.status = res.status;
+                    throw err;
+                }
+                return resParsed;
+            })
             .then(({ competitions, ...res }) => {
                 const crrntComptns = competitions.filter(cp => arrComptns.find(id => id === cp.id));
                 setStateComptns({ ...stateComptns, list: crrntComptns });
-                // console.log(crrntComptns);
+            })
+            .catch(err => {
+                console.dir(err);
+                console.log(err.message);
+                props.throwError(err)
             });
     }
 
@@ -96,4 +109,4 @@ const CompetitionsArea = ({ currentComptList, comptsOpts, changeComptList }) => 
     )
 }
 
-export default CompetitionsArea;
+export default withErrorHandling(CompetitionsArea);

@@ -1,0 +1,22 @@
+.NoMatch {
+  padding: 2rem 0 0 0;
+  margin: auto;
+  text-align: center;
+  &__Mess {
+  }
+  &__Face {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    padding: 1rem 0;
+    font-size: 2rem;
+  }
+}
+.Btn {
+  background-color: var(--clr-secondary);
+  color: var(--clr-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
